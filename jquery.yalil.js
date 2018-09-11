@@ -1,5 +1,5 @@
 /*!
- * jQuery Yalil 1.0.0 pre
+ * jQuery Yalil 1.0.1
  * https://github.com/noc2spam/yalil
  * 
  * Author : Sugata Sengupta
@@ -32,6 +32,9 @@
                  $img.removeAttr('data-original-src');
                  $img.load(function(){
                       queue.shift();
+                 });
+                 $img.error(function(){
+                     queue.shift();
                  });
             } 
         };
