@@ -15,22 +15,36 @@
             selector : 'img'
         }, options );
         var $this = this;
-        var processLoadingImages = function($el) {
-            var promises = [];
-
-            $el.each(function() {
-                 var def = new $.Deferred();
-                 var $img = $(this);
+        var queue = [];
+        var interval = null;
+        var processImageQueue = function(){
+            var qlength = queue.length;
+            if(qlength == 0){
+                clearInterval(interval);
+                $.event.trigger("imagesLoaded");
+                return;
+            }
+            if(!queue[0].started){
+                 queue[0].started = true;
+                 var $img = $(queue[0].el);
                  $img.attr('src', $img.data('original-src'));
                  $img.removeAttr('data-original-src');
                  $img.load(function(){
-                     def.resolve();
+                      queue.shift();
                  });
-                 
-                 promises.push(def);
+            } 
+        };
+        var processLoadingImages = function($el) {
+            
+            $el.each(function(key,value) {
+                 queue.push({
+                     id:key,
+                     el:value,
+                     started:false
+                 });
             });
-
-            return $.when.apply(undefined, promises).promise();
+            
+            interval = setInterval(processImageQueue,100);
         }
         $(document).ready(function(){
             var $el = $this.find(settings.selector);

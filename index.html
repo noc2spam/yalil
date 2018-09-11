@@ -1,11 +1,15 @@
 <html>
 <head>
-<title>Yet Another (Stupidly Simple) Image loader</title>
+<title>Ya-Li'l - Yet Another Lazy Image loader - jQuery Plugin</title>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="jquery.yalil.js"></script>
 <script>
 $(document).ready(function(){
-    $('body').yalil();
+    $('body').yalil({
+    });
+    $(document).on('imagesLoaded', function(){
+        console.log("All images have been loaded!");
+    });
 });
 </script>
 </head>
