@@ -26,13 +26,14 @@ $(document).ready(function(){
 });
 ```
 
+`loadingImage` is the preloader image that is to be shown for each image. By default, it is set to `InternetSlowdown_Day.gif` which can be downloaded with the plugin. `selector` is the child selector that is to be found inside the container. By default it is set as `img` which will lazy load all images inside the container. This can be changed to any jQuery selector for lazy loading specific images.
+
+
 Ya-Li'l will fire event `imagesLoaded` so that you can use callback.
 ```
 $(document).on('imagesLoaded', function(){
     console.log("All images have been loaded!");
 });
 ```
-
-`loadingImage` is the preloader image that is to be shown for each image. By default, it is set to `InternetSlowdown_Day.gif` which can be downloaded with the plugin. `selector` is the child selector that is to be found inside the container. By default it is set as `img` which will lazy load all images inside the container. This can be changed to any jQuery selector for lazy loading specific images.
 
 Do you have a comment/request on this plugin? Feel free to email me at sugato at tech5 dot net
