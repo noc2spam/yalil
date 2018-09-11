@@ -5,8 +5,7 @@
 <script src="jquery.yalil.js"></script>
 <script>
 $(document).ready(function(){
-    $('body').yalil({
-    });
+    
     $(document).on('imagesLoaded', function(){
         console.log("All images have been loaded!");
     });
@@ -40,7 +39,10 @@ $(document).ready(function(){
 <img src="http://discovermoab.com/wp-content/uploads/2017/10/Autumn-Sunset-at-Warner-Lake.jpg" width="200"/>
 <img src="https://www.bighorngolf.com/site/assets/files/1040/mountains-hole-13.jpg" width="200"/>
 <br/>
-
+<script>
+$('body').yalil({
+    });
+</script>
 </body>
 
 </html>

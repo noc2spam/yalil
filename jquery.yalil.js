@@ -22,6 +22,7 @@
             if(qlength == 0){
                 clearInterval(interval);
                 $.event.trigger("imagesLoaded");
+                
                 return;
             }
             if(!queue[0].started){
@@ -46,15 +47,14 @@
             
             interval = setInterval(processImageQueue,100);
         }
-        $(document).ready(function(){
-            var $el = $this.find(settings.selector);
-            $el.each(function(){
-                $(this).attr('data-original-src', $(this).attr('src'));
-                $(this).attr('src', settings.loadingImage);
-            });
+        var $el = $this.find(settings.selector);
+        $el.each(function(){
+            $(this).attr('data-original-src', $(this).attr('src'));
+            $(this).attr('src', settings.loadingImage);
         });
         $(window).load(function(){
             var $el = $this.find(settings.selector);
+            $el.show();
             processLoadingImages($el);
         });
         return this; 
