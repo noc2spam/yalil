@@ -3,22 +3,30 @@
 <title>Ya-Li'l - Yet Another Lazy Image loader - jQuery Plugin</title>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="jquery.yalil.js"></script>
-<script>
-$(document).ready(function(){
-    
-    $(document).on('imagesLoaded', function(){
-        console.log("All images have been loaded!");
+<style>
+    img {
+        display:none;
+    }
+</style>
+    <script>
+    $(document).ready(function(){
+        $('body').yalil({
+            success: function($el){
+                console.log("success loading URL " + $el.attr('src'));
+            },
+            error: function($el){
+                console.log("error loading URL " + $el.attr('src'));
+            }
+        });
+        $('img').show();
+        $(document).on('imagesLoaded', function(){
+            console.log("All images have been loaded!");
+        });
     });
-});
-</script>
+    </script>
 </head>
 <body>
-<img src="https://www.freepik.com/blog/wp-content/uploads/2017/04/02previa_GIF.gif" width="200"/>
-<img src="https://cdn-images-1.medium.com/max/1600/1*-e5Hl_0novHiOgPNVXzNLw.gif" width="200"/>
-<img src="https://cdn3.digitalartsonline.co.uk/cmsdata/slideshow/3637622/fausto-montanari2.gif" width="200"/>
-<img src="http://theinspirationgrid.com/app/uploads/2017/09/illustration-magoz-feature.gif" width="200"/>
-<img src="https://cdn-images-1.medium.com/max/1600/1*PVBKWyWI7Wl7utATzHvjvQ.gif" width="200"/>
-<img src="https://colinbendell.cloudinary.com/image/upload/c_crop,f_auto,g_auto,h_350,w_400/v1512090971/Wizard-Clap-by-Markus-Magnusson.gif" width="200"/>
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg/1920px-Monasterio_Khor_Virap%2C_Armenia%2C_2016-10-01%2C_DD_25.jpg" width="200"/>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Batian_Nelion_and_pt_Slade_in_the_foreground_Mt_Kenya.JPG/1280px-Batian_Nelion_and_pt_Slade_in_the_foreground_Mt_Kenya.JPG" width="200"/>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Mount_Wilhelm.jpg/1280px-Mount_Wilhelm.jpg" width="200"/>
@@ -38,10 +46,15 @@ $(document).ready(function(){
 <img src="https://www.oddizzi.com/wp-content/uploads/2010/12/img-mountains-mtfuji_big.jpg" width="200"/>
 <img src="http://discovermoab.com/wp-content/uploads/2017/10/Autumn-Sunset-at-Warner-Lake.jpg" width="200"/>
 <img src="https://www.bighorngolf.com/site/assets/files/1040/mountains-hole-13.jpg" width="200"/>
+<img src="https://www.freepik.com/blog/wp-content/uploads/2017/04/02previa_GIF.gif" width="200"/>
+<img src="https://cdn-images-1.medium.com/max/1600/1*-e5Hl_0novHiOgPNVXzNLw.gif" width="200"/>
+<img src="https://cdn3.digitalartsonline.co.uk/cmsdata/slideshow/3637622/fausto-montanari2.gif" width="200"/>
+<img src="http://theinspirationgrid.com/app/uploads/2017/09/illustration-magoz-feature.gif" width="200"/>
+<img src="https://cdn-images-1.medium.com/max/1600/1*PVBKWyWI7Wl7utATzHvjvQ.gif" width="200"/>
+<img src="https://colinbendell.cloudinary.com/image/upload/c_crop,f_auto,g_auto,h_350,w_400/v1512090971/Wizard-Clap-by-Markus-Magnusson.gif" width="200"/>
 <br/>
 <script>
-$('body').yalil({
-    });
+
 </script>
 </body>
 

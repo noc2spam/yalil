@@ -1,18 +1,27 @@
 /*!
- * jQuery Yalil 1.0.1
+ * jQuery Yalil 1.0.2
  * https://github.com/noc2spam/yalil
  * 
- * Author : Sugata Sengupta
+ * Author : Sugata Sengupta (thcdesigning at gmail dot com)
+ * 
  * licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
+ * Loader Image Courtesy : https://en.wikipedia.org/wiki/File:Parabolic_dish_motion_circle.gif
+ 
  */
  
 (function ( $ ) {
     
     $.fn.yalil = function( options ) {
         var settings = $.extend({
-            loadingImage : "InternetSlowdown_Day.gif",
-            selector : 'img'
+            loadingImage : "Parabolic_dish_motion_circle.gif",
+            selector : 'img',
+            success : function($el){
+               
+            },
+            error : function($el){
+                
+            }
         }, options );
         var $this = this;
         var queue = [];
@@ -32,9 +41,11 @@
                  $img.removeAttr('data-original-src');
                  $img.load(function(){
                       queue.shift();
+                      settings.success($img);
                  });
                  $img.error(function(){
                      queue.shift();
+                     settings.error($img);
                  });
             } 
         };
