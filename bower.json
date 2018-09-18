@@ -1,0 +1,17 @@
+{
+  "name": "yalil",
+  "description": "Yet Another Lazy Image Loader plugin for jQuery",
+  "main": [
+    "jquery.yalil.js"
+  ],
+   "keywords": [
+    "lazy loader",
+    "lazy image loader",
+    "jquery image loader"
+  ],
+  "authors": [
+    "Sugata Sengupta <thcdesigning@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": false
+ }
